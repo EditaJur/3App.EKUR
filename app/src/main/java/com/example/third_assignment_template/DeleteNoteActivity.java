@@ -30,6 +30,9 @@ public class DeleteNoteActivity extends AppCompatActivity {
         this.dropdownSelect.setAdapter(arrayAdapter);
     }
 
+
+
+
     public void onDeleteNoteClick(View view) {
         String selected = this.dropdownSelect.getSelectedItem().toString();
 

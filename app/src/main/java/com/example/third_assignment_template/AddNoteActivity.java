@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -30,9 +31,14 @@ public class AddNoteActivity extends AppCompatActivity {
         newStrSet.add(txtNote.getText().toString());
         newStrSet.addAll(oldSet);
 
-        spEd.putStringSet("notes",newStrSet);
+        spEd.putStringSet("notes", newStrSet);
         spEd.apply();
 
         finish();
+        }
+
+        else{
+            Toast.makeText(AddNoteActivity.this, "Fill empty fields!", Toast.LENGTH_LONG).show();
+        }
     }
 }
