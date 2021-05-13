@@ -23,22 +23,22 @@ public class AddNoteActivity extends AppCompatActivity {
     public void onAddNoteClick(View view) {
         EditText txtNote = findViewById(R.id.txtNote);
 
-        //https://stackoverflow.com/questions/14034803/misbehavior-when-trying-to-store-a-string-set-using-sharedpreferences
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        SharedPreferences.Editor spEd = sp.edit();
-        Set<String> oldSet = sp.getStringSet("notes", new HashSet<String>());
-        Set<String> newStrSet = new HashSet<String>();
-        newStrSet.add(txtNote.getText().toString());
-        newStrSet.addAll(oldSet);
 
-        spEd.putStringSet("notes", newStrSet);
-        spEd.apply();
+            //https://stackoverflow.com/questions/14034803/misbehavior-when-trying-to-store-a-string-set-using-sharedpreferences
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            SharedPreferences.Editor spEd = sp.edit();
+            Set<String> oldSet = sp.getStringSet("notes", new HashSet<String>());
+            Set<String> newStrSet = new HashSet<String>();
+             oldSet.add(txtNote.getText().toString());
+            newStrSet.addAll(oldSet);
 
-        finish();
-        }
+            spEd.putStringSet("notes",newStrSet);
+            spEd.apply();
 
-        else{
-            Toast.makeText(AddNoteActivity.this, "Fill empty fields!", Toast.LENGTH_LONG).show();
+            finish();
         }
     }
-}
+
+
+
+
